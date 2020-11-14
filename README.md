@@ -2,6 +2,8 @@
 
 ### webonyx/graphql-php 的 Laravel 适配，魔改原库，将其彻底融入 Laravel 生命周期，接入 Middleware、Exception、Eloquent，提供 GraphQL 路由、Type、QueryFields 文件结构
 
+<br>
+
 ## 用法
 
 ### 安装 Composer 包
@@ -16,9 +18,9 @@
 ### 开始工作
 
 > 1. app\GraphApp 为工作文件夹
-  2. Routes.php 为路由文件
-  3. QueryFields 目录存放响应代码
-  4. Types 目录存放自定义类型
+> 2. Routes.php 为路由文件
+> 3. QueryFields 目录存放响应代码
+> 4. Types 目录存放自定义类型
 
 ## demo
 
