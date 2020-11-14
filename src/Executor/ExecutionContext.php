@@ -69,7 +69,7 @@ class ExecutionContext
         $this->promiseAdapter = $promiseAdapter;
     }
 
-    public function addError(Error $error)
+    public function addError($error)
     {
         $this->errors[] = $error;
 

@@ -622,8 +622,10 @@ class ReferenceExecutor implements ExecutorImplementation
             $contextValue = $this->exeContext->contextValue;
 
             return $resolveFn($rootValue, $args, $contextValue, $info);
+        } catch (Exception $error) {
+            throw $error;
         } catch (Throwable $error) {
-            return $error;
+            throw $error;
         }
     }
 

@@ -16,7 +16,7 @@ class SyntaxError extends Error
     public function __construct(Source $source, $position, $description)
     {
         parent::__construct(
-            sprintf('Syntax Error: %s', $description),
+            sprintf('Query 语法错误: %s', $description),
             null,
             $source,
             [$position]

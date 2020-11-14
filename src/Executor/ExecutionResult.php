@@ -135,7 +135,10 @@ class ExecutionResult implements JsonSerializable
      */
     public function toArray(int $debug = DebugFlag::NONE) : array
     {
-        $result = [];
+        $result = [
+            'status' => 0,
+            'message' => '',
+        ];
 
         if (count($this->errors ?? []) > 0) {
             $errorsHandler = $this->errorsHandler ?? static function (array $errors, callable $formatter) : array {
@@ -150,6 +153,7 @@ class ExecutionResult implements JsonSerializable
 
         if ($this->data !== null) {
             $result['data'] = $this->data;
+            $result['values'] = $this->data;
         }
 
         if (count($this->extensions ?? []) > 0) {

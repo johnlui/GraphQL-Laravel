@@ -1,11 +1,12 @@
 {
-  "name":              "webonyx/graphql-php",
-  "description":       "A PHP port of GraphQL reference implementation",
-  "type":              "library",
-  "license":           "MIT",
-  "homepage":          "https://github.com/webonyx/graphql-php",
-  "keywords":          [
+  "name":        "johnlui/graphql-laravel",
+  "description": "A Laravel GraphQL reference implementation forked from webonyx/graphql-php",
+  "type":        "library",
+  "license":     "MIT",
+  "homepage":    "https://github.com/johnlui/GraphQL-Laravel",
+  "keywords":    [
     "graphql",
+    "Laravel",
     "API"
   ],
   "require": {
@@ -42,6 +43,13 @@
       "GraphQL\\Tests\\": "tests/",
       "GraphQL\\Benchmarks\\": "benchmarks/",
       "GraphQL\\Examples\\Blog\\": "examples/01-blog/Blog/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "GraphQL\\GraphQLProvider"
+      ]
     }
   },
   "suggest": {
