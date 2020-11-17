@@ -1,6 +1,30 @@
-# GraphQL-Laravel
+<p align="center">
+    <a href="https://github.com/johnlui/GraphQL-Laravel"><img src="https://github.com/johnlui/GraphQL-Laravel/blob/master/assets/GraphQL-Laravel.png"></a>
+</p>
 
-### webonyx/graphql-php 的 Laravel 适配，魔改原库，将其彻底融入 Laravel 生命周期，接入 Middleware、Exception、Eloquent，提供 GraphQL 路由、Type、QueryFields 文件结构
+<p align="center">
+  <a href="https://packagist.org/packages/johnlui/GraphQL-Laravel"><img src="https://poser.pugx.org/johnlui/GraphQL-Laravel/v/stable" alt="GitHub version" height="18"></a>
+  <!-- <a href="https://github.com/Pinatra/Pinatra"><img src="https://img.shields.io/badge/Code_Coverage-100%25-brightgreen.svg" alt="code-coverage"></a> -->
+  <a href="https://github.com/Pinatra/Pinatra"><img src="https://img.shields.io/badge/PHP-7.1%2B-orange.svg" alt="php-version"></a>
+  <a href="https://packagist.org/packages/johnlui/GraphQL-Laravel"><img src="https://poser.pugx.org/johnlui/GraphQL-Laravel/license.svg" alt="License"></a>
+</p>
+<p align="center">
+  <a href="https://travis-ci.org/johnlui/GraphQL-Laravel"><img src="https://travis-ci.org/johnlui/GraphQL-Laravel.svg?branch=master"></a>
+</p>
+
+<br>
+
+[`webonyx/graphql-php`](https://github.com/webonyx/graphql-php) 的 Laravel 适配，魔改原库，将其彻底融入 Laravel 生命周期。
+
+## 功能
+
+1. 接入 Laravel Middleware
+2. 依赖 Laravel Exception 处理异常流程
+3. 完美接入 Eloquent
+4. 提供 GraphQL 路由
+5. 设置 Types 文件夹，提供强大的 Type 基类
+6. 设置 QueryFields 文件夹
+
 
 <br>
 
@@ -11,16 +35,17 @@
 `composer require johnlui/graphql-laravel`
 
 
-### 部署开发目录到 app 下
+### 部署开发目录及配置文件到 app 下
 
 `php artisan vendor:publish`
 
-### 开始工作
+### 快速入门
 
-> 1. app\GraphApp 为工作文件夹
-> 2. Routes.php 为路由文件
-> 3. QueryFields 目录存放响应代码
-> 4. Types 目录存放自定义类型
+> 1. `app\GraphApp` 为工作文件夹
+> 2. `Routes.php` 为路由文件
+> 3. `QueryFields` 目录存放响应代码
+> 4. `Types` 目录存放自定义类型
+> 5. `config/graphql.php` 为配置文件
 
 ## demo
 
@@ -46,6 +71,16 @@ query ($id: Int) {
 }
 ```
 
+#### 启动 server
+
+`php artisan serve`
+
+#### url
+
+`http://127.0.0.1:8000/graphql`
+
+修改默认路径请编辑`config/graphql.php`中的`apiUri`。
+
 #### curl raw 代码描述
 
 ```bash
@@ -70,3 +105,7 @@ curl --location --request POST 'http://127.0.0.1:8000/graphql' \
   }
 }
 ```
+
+## License
+
+The `johnlui/GraphQL-Laravel` is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

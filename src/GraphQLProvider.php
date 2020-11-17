@@ -28,7 +28,7 @@ class GraphQLProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->publishes([
-            // __DIR__.'/config/grapql_laravel.php' => config_path('grapql_laravel.php'),
+            __DIR__.'/config/graphql.php' => config_path('graphql.php'),
             dirname(__DIR__).'/GraphApp' => app_path('GraphApp'),
         ]);
     }
