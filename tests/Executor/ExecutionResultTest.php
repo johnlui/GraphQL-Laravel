@@ -13,17 +13,17 @@ class ExecutionResultTest extends TestCase
     {
         $executionResult = new ExecutionResult();
 
-        self::assertEquals([], $executionResult->toArray());
+        self::assertArraySubset([], $executionResult->toArray());
     }
 
     public function testToArrayExtensions() : void
     {
         $executionResult = new ExecutionResult(null, [], ['foo' => 'bar']);
 
-        self::assertEquals(['extensions' => ['foo' => 'bar']], $executionResult->toArray());
+        self::assertArraySubset(['extensions' => ['foo' => 'bar']], $executionResult->toArray());
 
         $executionResult->extensions = ['bar' => 'foo'];
 
-        self::assertEquals(['extensions' => ['bar' => 'foo']], $executionResult->toArray());
+        self::assertArraySubset(['extensions' => ['bar' => 'foo']], $executionResult->toArray());
     }
 }

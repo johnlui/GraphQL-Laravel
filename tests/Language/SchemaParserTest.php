@@ -1145,7 +1145,7 @@ input Hello {
     public function testDoesNotAllowEmptyFields() : void
     {
         $body = 'type Hello { }';
-        $this->expectSyntaxError($body, 'Syntax Error: Expected Name, found }', new SourceLocation(1, 14));
+        $this->expectSyntaxError($body, 'Query 语法错误: Expected Name, found }', new SourceLocation(1, 14));
     }
 
     /**
@@ -1168,7 +1168,7 @@ input Hello {
     public function testDoesntAllowLegacySDLImplementsInterfacesByDefault() : void
     {
         $body = 'type Hello implements Wo rld { field: String }';
-        $this->expectSyntaxError($body, 'Syntax Error: Unexpected Name "rld"', new SourceLocation(1, 26));
+        $this->expectSyntaxError($body, 'Query 语法错误: Unexpected Name "rld"', new SourceLocation(1, 26));
     }
 
     /**

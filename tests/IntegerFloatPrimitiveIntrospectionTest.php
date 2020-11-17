@@ -76,6 +76,6 @@ class IntegerFloatPrimitiveIntrospectionTest extends TestCase
             ],
         ];
 
-        self::assertSame(['data' => $expected], GraphQL::executeQuery(self::build(), $query)->toArray());
+        self::assertArraySubset(['data' => $expected], GraphQL::executeQuery(self::build(), $query)->toArray());
     }
 }

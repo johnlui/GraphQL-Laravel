@@ -58,7 +58,7 @@ class StarWarsIntrospectionTest extends TestCase
      */
     private static function assertValidQuery($query, $expected) : void
     {
-        self::assertEquals(['data' => $expected], GraphQL::executeQuery(StarWarsSchema::build(), $query)->toArray());
+        self::assertArraySubset(['data' => $expected], GraphQL::executeQuery(StarWarsSchema::build(), $query)->toArray());
     }
 
     /**

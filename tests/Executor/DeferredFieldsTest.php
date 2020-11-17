@@ -266,7 +266,7 @@ class DeferredFieldsTest extends TestCase
         ];
 
         $result = Executor::execute($schema, $query);
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         $expectedPaths = [
             ['topStories'],
@@ -354,7 +354,7 @@ class DeferredFieldsTest extends TestCase
         ];
 
         $result = Executor::execute($schema, $query);
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         $expectedPaths = [
             ['categories'],
@@ -505,7 +505,7 @@ class DeferredFieldsTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         $expectedPaths = [
             ['nest'],
@@ -590,7 +590,7 @@ class DeferredFieldsTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         $expectedPaths = [
             ['categories'],

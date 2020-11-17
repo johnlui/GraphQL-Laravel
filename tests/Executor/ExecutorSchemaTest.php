@@ -207,7 +207,7 @@ class ExecutorSchemaTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, Executor::execute($BlogSchema, Parser::parse($request))->toArray());
+        self::assertArraySubset($expected, Executor::execute($BlogSchema, Parser::parse($request))->toArray());
     }
 
     private function article($id)

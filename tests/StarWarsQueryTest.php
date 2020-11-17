@@ -32,7 +32,7 @@ class StarWarsQueryTest extends TestCase
      */
     private static function assertValidQuery($query, $expected) : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => $expected],
             GraphQL::executeQuery(StarWarsSchema::build(), $query)->toArray()
         );
@@ -175,7 +175,7 @@ class StarWarsQueryTest extends TestCase
      */
     private static function assertValidQueryWithParams($query, $params, $expected)
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => $expected],
             GraphQL::executeQuery(StarWarsSchema::build(), $query, null, null, $params)->toArray()
         );

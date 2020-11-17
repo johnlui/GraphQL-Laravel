@@ -147,7 +147,7 @@ class ExecutorLazySchemaTest extends TestCase
 
         Warning::suppress(Warning::WARNING_FULL_SCHEMA_SCAN);
         $result = Executor::execute($schema, Parser::parse($query));
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected->toArray(), $result->toArray());
 
         Warning::enable(Warning::WARNING_FULL_SCHEMA_SCAN);
         $result = Executor::execute($schema, Parser::parse($query));
@@ -245,7 +245,7 @@ class ExecutorLazySchemaTest extends TestCase
             'SomeObject',
             'SomeObject.fields',
         ];
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
         self::assertEquals($expectedExecutorCalls, $this->calls);
     }
 
@@ -381,7 +381,7 @@ class ExecutorLazySchemaTest extends TestCase
             'OtherObject' => true,
         ];
 
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
         self::assertEquals($expectedLoadedTypes, $this->loadedTypes);
 
         $expectedExecutorCalls = [
@@ -429,7 +429,7 @@ class ExecutorLazySchemaTest extends TestCase
             'SomeScalar'    => true,
         ];
 
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
         self::assertEquals($expectedLoadedTypes, $this->loadedTypes);
 
         $expectedCalls = [

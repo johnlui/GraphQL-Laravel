@@ -54,8 +54,8 @@ class ParserTest extends TestCase
         return [
             [
                 '{',
-                'Syntax Error: Expected Name, found <EOF>',
-                "Syntax Error: Expected Name, found <EOF>\n\nGraphQL request (1:2)\n1: {\n    ^\n",
+                'Query 语法错误: Expected Name, found <EOF>',
+                "Query 语法错误: Expected Name, found <EOF>\n\nGraphQL request (1:2)\n1: {\n    ^\n",
                 [1],
                 [new SourceLocation(
                     1,
@@ -66,12 +66,12 @@ class ParserTest extends TestCase
             [
                 '{ ...MissingOn }
 fragment MissingOn Type
-', 'Syntax Error: Expected "on", found Name "Type"',
-                "Syntax Error: Expected \"on\", found Name \"Type\"\n\nGraphQL request (2:20)\n1: { ...MissingOn }\n2: fragment MissingOn Type\n                      ^\n3: \n",
+', 'Query 语法错误: Expected "on", found Name "Type"',
+                "Query 语法错误: Expected \"on\", found Name \"Type\"\n\nGraphQL request (2:20)\n1: { ...MissingOn }\n2: fragment MissingOn Type\n                      ^\n3: \n",
             ],
-            ['{ field: {} }', 'Syntax Error: Expected Name, found {', "Syntax Error: Expected Name, found {\n\nGraphQL request (1:10)\n1: { field: {} }\n            ^\n"],
-            ['notanoperation Foo { field }', 'Syntax Error: Unexpected Name "notanoperation"', "Syntax Error: Unexpected Name \"notanoperation\"\n\nGraphQL request (1:1)\n1: notanoperation Foo { field }\n   ^\n"],
-            ['...', 'Syntax Error: Unexpected ...', "Syntax Error: Unexpected ...\n\nGraphQL request (1:1)\n1: ...\n   ^\n"],
+            ['{ field: {} }', 'Query 语法错误: Expected Name, found {', "Query 语法错误: Expected Name, found {\n\nGraphQL request (1:10)\n1: { field: {} }\n            ^\n"],
+            ['notanoperation Foo { field }', 'Query 语法错误: Unexpected Name "notanoperation"', "Query 语法错误: Unexpected Name \"notanoperation\"\n\nGraphQL request (1:1)\n1: notanoperation Foo { field }\n   ^\n"],
+            ['...', 'Query 语法错误: Unexpected ...', "Query 语法错误: Unexpected ...\n\nGraphQL request (1:1)\n1: ...\n   ^\n"],
         ];
     }
 
@@ -114,7 +114,7 @@ fragment MissingOn Type
             self::fail('Expected exception not thrown');
         } catch (SyntaxError $error) {
             self::assertEquals(
-                "Syntax Error: Expected {, found <EOF>\n\nMyQuery.graphql (1:6)\n1: query\n        ^\n",
+                "Query 语法错误: Expected {, found <EOF>\n\nMyQuery.graphql (1:6)\n1: query\n        ^\n",
                 (string) $error
             );
         }

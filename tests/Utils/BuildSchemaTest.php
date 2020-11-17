@@ -70,7 +70,7 @@ class BuildSchemaTest extends TestCase
             '{ add(x: 34, y: 55) }',
             $root
         );
-        self::assertEquals(['data' => ['add' => 89]], $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset(['data' => ['add' => 89]], $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     /**
@@ -513,7 +513,7 @@ type WorldTwo {
         ];
 
         $result = GraphQL::executeQuery($schema, $query, $rootValue);
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     /**
@@ -577,7 +577,7 @@ type WorldTwo {
         ];
 
         $result = GraphQL::executeQuery($schema, $query, $rootValue);
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     /**

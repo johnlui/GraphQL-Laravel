@@ -1082,7 +1082,7 @@ class IntrospectionTest extends TestCase
 
         $actual = GraphQL::executeQuery($emptySchema, $request)->toArray();
 
-        // self::assertEquals($expected, $actual);
+        // self::assertArraySubset($expected, $actual);
         self::assertArraySubset($expected, $actual);
     }
 
@@ -1181,7 +1181,7 @@ class IntrospectionTest extends TestCase
 
         $result = GraphQL::executeQuery($schema, $request)->toArray();
         $result = $result['data']['__type'];
-        self::assertEquals($expectedFragment, $result);
+        self::assertArraySubset($expectedFragment, $result);
     }
 
     /**
@@ -1213,7 +1213,7 @@ class IntrospectionTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1267,7 +1267,7 @@ class IntrospectionTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1324,7 +1324,7 @@ class IntrospectionTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1386,7 +1386,7 @@ class IntrospectionTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1447,7 +1447,7 @@ class IntrospectionTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1540,7 +1540,7 @@ class IntrospectionTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**
@@ -1616,7 +1616,7 @@ class IntrospectionTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, GraphQL::executeQuery($schema, $request)->toArray());
+        self::assertArraySubset($expected, GraphQL::executeQuery($schema, $request)->toArray());
     }
 
     /**

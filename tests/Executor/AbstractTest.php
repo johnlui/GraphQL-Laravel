@@ -101,7 +101,7 @@ class AbstractTest extends TestCase
         ]);
 
         $result = Executor::execute($schema, Parser::parse($query));
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected->toArray(), $result->toArray());
     }
 
     /**
@@ -169,7 +169,7 @@ class AbstractTest extends TestCase
             ],
         ]);
 
-        self::assertEquals($expected, Executor::execute($schema, Parser::parse($query)));
+        self::assertArraySubset($expected->toArray(), Executor::execute($schema, Parser::parse($query))->toArray());
     }
 
     /**
@@ -431,7 +431,7 @@ class AbstractTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     /**
@@ -506,7 +506,7 @@ class AbstractTest extends TestCase
 
         $result = GraphQL::executeQuery($schema, $query)->toArray();
 
-        self::assertEquals(
+        self::assertArraySubset(
             [
                 'data' => [
                     'pets' => [

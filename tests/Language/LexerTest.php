@@ -151,7 +151,7 @@ class LexerTest extends TestCase
             self::fail('Expected exception not thrown');
         } catch (SyntaxError $error) {
             self::assertEquals(
-                'Syntax Error: Cannot parse the unexpected character "?".' . "\n" .
+                'Query 语法错误: Cannot parse the unexpected character "?".' . "\n" .
                 "\n" .
                 "GraphQL request (3:5)\n" .
                 "2: \n" .
@@ -181,7 +181,7 @@ class LexerTest extends TestCase
             self::fail('Expected exception not thrown');
         } catch (SyntaxError $error) {
             self::assertEquals(
-                'Syntax Error: Cannot parse the unexpected character "?".' . "\n" .
+                'Query 语法错误: Cannot parse the unexpected character "?".' . "\n" .
                 "\n" .
                 "foo.js (13:6)\n" .
                 "12: \n" .
@@ -203,7 +203,7 @@ class LexerTest extends TestCase
             self::fail('Expected exception not thrown');
         } catch (SyntaxError $error) {
             self::assertEquals(
-                'Syntax Error: Cannot parse the unexpected character "?".' . "\n" .
+                'Query 语法错误: Cannot parse the unexpected character "?".' . "\n" .
                 "\n" .
                 "foo.js (1:5)\n" .
                 '1:     ?' . "\n" .
@@ -689,7 +689,7 @@ class LexerTest extends TestCase
         );
 
         $this->expectException(SyntaxError::class);
-        $this->expectExceptionMessage('Syntax Error: Invalid number, expected digit but got: "b"');
+        $this->expectExceptionMessage('Query 语法错误: Invalid number, expected digit but got: "b"');
         try {
             $lexer->advance();
             self::fail('Expected exception not thrown');

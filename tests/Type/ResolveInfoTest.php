@@ -176,7 +176,7 @@ class ResolveInfoTest extends TestCase
         $result = GraphQL::executeQuery($schema, $doc)->toArray();
 
         self::assertTrue($hasCalled);
-        self::assertEquals(['data' => ['article' => null]], $result);
+        self::assertArraySubset(['data' => ['article' => null]], $result);
         self::assertEquals($expectedDefaultSelection, $actualDefaultSelection);
         self::assertEquals($expectedDeepSelection, $actualDeepSelection);
     }
@@ -195,7 +195,7 @@ class ResolveInfoTest extends TestCase
                 'ping' => [
                     'type'    => Type::string(),
                     'resolve' => static function ($value, $args, $context, ResolveInfo $info) : string {
-                        self::assertEquals([], $info->getFieldSelection());
+                        self::assertArraySubset([], $info->getFieldSelection());
 
                         return 'pong';
                     },
@@ -206,7 +206,7 @@ class ResolveInfoTest extends TestCase
         $schema = new Schema(['query' => $pingPongQuery]);
         $result = GraphQL::executeQuery($schema, $query)->toArray();
 
-        self::assertEquals(['data' => ['ping' => 'pong']], $result);
+        self::assertArraySubset(['data' => ['ping' => 'pong']], $result);
     }
 
     public function testMergedFragmentsFieldSelection() : void
@@ -375,7 +375,7 @@ class ResolveInfoTest extends TestCase
         $result = GraphQL::executeQuery($schema, $doc)->toArray();
 
         self::assertTrue($hasCalled);
-        self::assertEquals(['data' => ['article' => null]], $result);
+        self::assertArraySubset(['data' => ['article' => null]], $result);
         self::assertEquals($expectedDeepSelection, $actualDeepSelection);
     }
 }

@@ -73,7 +73,7 @@ class QueryExecutionTest extends ServerTestCase
         self::assertNull($result->data);
         self::assertCount(1, $result->errors);
         self::assertStringContainsString(
-            'Syntax Error: Expected Name, found <EOF>',
+            'Query 语法错误: Expected Name, found <EOF>',
             $result->errors[0]->getMessage()
         );
     }
@@ -267,7 +267,7 @@ class QueryExecutionTest extends ServerTestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
     }
 
     private function executePersistedQuery($queryId, $variables = null)
@@ -308,8 +308,8 @@ class QueryExecutionTest extends ServerTestCase
             ],
         ];
 
-        self::assertEquals($expected[0], $result[0]->toArray());
-        self::assertEquals($expected[1], $result[1]->toArray());
+        self::assertArraySubset($expected[0], $result[0]->toArray());
+        self::assertArraySubset($expected[1], $result[1]->toArray());
     }
 
     /**
@@ -351,7 +351,7 @@ class QueryExecutionTest extends ServerTestCase
         ];
 
         $result = $this->executeQuery($mutation, null, true);
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
     }
 
     public function testAllowsPersistentQueries() : void
@@ -370,7 +370,7 @@ class QueryExecutionTest extends ServerTestCase
         $expected = [
             'data' => ['f1' => 'f1'],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         // Make sure it allows returning document node:
         $called = false;
@@ -382,7 +382,7 @@ class QueryExecutionTest extends ServerTestCase
         });
         $result = $this->executePersistedQuery('some-id');
         self::assertTrue($called);
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
     }
 
     public function testProhibitsInvalidPersistedQueryLoader() : void
@@ -413,7 +413,7 @@ class QueryExecutionTest extends ServerTestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
     }
 
     public function testAllowSkippingValidationForPersistedQueries() : void
@@ -438,7 +438,7 @@ class QueryExecutionTest extends ServerTestCase
         $expected = [
             'data' => [],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
 
         $result   = $this->executePersistedQuery('some-other-id');
         $expected = [
@@ -450,7 +450,7 @@ class QueryExecutionTest extends ServerTestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result->toArray());
+        self::assertArraySubset($expected, $result->toArray());
     }
 
     public function testProhibitsUnexpectedValidationRules() : void
@@ -543,7 +543,7 @@ class QueryExecutionTest extends ServerTestCase
             'load: 2',
             'load: 3',
         ];
-        self::assertEquals($expectedCalls, $calls);
+        self::assertArraySubset($expectedCalls, $calls);
 
         $expected = [
             [
@@ -557,9 +557,9 @@ class QueryExecutionTest extends ServerTestCase
             ],
         ];
 
-        self::assertEquals($expected[0], $result[0]->toArray());
-        self::assertEquals($expected[1], $result[1]->toArray());
-        self::assertEquals($expected[2], $result[2]->toArray());
+        self::assertArraySubset($expected[0], $result[0]->toArray());
+        self::assertArraySubset($expected[1], $result[1]->toArray());
+        self::assertArraySubset($expected[2], $result[2]->toArray());
     }
 
     public function testValidatesParamsBeforeExecution() : void

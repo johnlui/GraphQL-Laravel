@@ -269,9 +269,9 @@ class SchemaExtenderTest extends TestCase
 
         $result = GraphQL::executeQuery($extendedSchema, '{ newField }', ['newField' => 123]);
 
-        self::assertEquals($result->toArray(), [
+        self::assertArraySubset([
             'data' => ['newField' => '123'],
-        ]);
+        ], $result->toArray());
     }
 
     /**
@@ -1901,7 +1901,7 @@ extend type Query {
 
         $query  = '{ hello }';
         $result = GraphQL::executeQuery($extendedSchema, $query);
-        self::assertSame(['data' => ['hello' => 'Hello World!']], $result->toArray());
+        self::assertArraySubset(['data' => ['hello' => 'Hello World!']], $result->toArray());
     }
 
     public function testOriginalResolveFieldIsPreserved()
@@ -1933,7 +1933,7 @@ extend type Query {
 
         $query  = '{ hello }';
         $result = GraphQL::executeQuery($extendedSchema, $query);
-        self::assertSame(['data' => ['hello' => 'Hello World!']], $result->toArray());
+        self::assertArraySubset(['data' => ['hello' => 'Hello World!']], $result->toArray());
     }
 
     /**

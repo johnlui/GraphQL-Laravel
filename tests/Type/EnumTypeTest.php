@@ -234,7 +234,7 @@ class EnumTypeTest extends TestCase
      */
     public function testAcceptsEnumLiteralsAsInput() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorInt' => 1]],
             GraphQL::executeQuery($this->schema, '{ colorInt(fromEnum: GREEN) }')->toArray()
         );
@@ -245,7 +245,7 @@ class EnumTypeTest extends TestCase
      */
     public function testEnumMayBeOutputType() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorEnum' => 'GREEN']],
             GraphQL::executeQuery($this->schema, '{ colorEnum(fromInt: 1) }')->toArray()
         );
@@ -256,7 +256,7 @@ class EnumTypeTest extends TestCase
      */
     public function testEnumMayBeBothInputAndOutputType() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorEnum' => 'GREEN']],
             GraphQL::executeQuery($this->schema, '{ colorEnum(fromEnum: GREEN) }')->toArray()
         );
@@ -374,7 +374,7 @@ class EnumTypeTest extends TestCase
      */
     public function testAcceptsJSONStringAsEnumVariable() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorEnum' => 'BLUE']],
             GraphQL::executeQuery(
                 $this->schema,
@@ -391,7 +391,7 @@ class EnumTypeTest extends TestCase
      */
     public function testAcceptsEnumLiteralsAsInputArgumentsToMutations() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['favoriteEnum' => 'GREEN']],
             GraphQL::executeQuery(
                 $this->schema,
@@ -410,7 +410,7 @@ class EnumTypeTest extends TestCase
      */
     public function testAcceptsEnumLiteralsAsInputArgumentsToSubscriptions() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['subscribeToEnum' => 'GREEN']],
             GraphQL::executeQuery(
                 $this->schema,
@@ -463,7 +463,7 @@ class EnumTypeTest extends TestCase
      */
     public function testEnumValueMayHaveAnInternalValueOf0() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorEnum' => 'RED', 'colorInt' => 0]],
             GraphQL::executeQuery(
                 $this->schema,
@@ -480,7 +480,7 @@ class EnumTypeTest extends TestCase
      */
     public function testEnumInputsMayBeNullable() : void
     {
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['colorEnum' => null, 'colorInt' => null]],
             GraphQL::executeQuery(
                 $this->schema,
@@ -574,7 +574,7 @@ class EnumTypeTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected, $result);
     }
 
     /**

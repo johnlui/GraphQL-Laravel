@@ -170,7 +170,7 @@ class UnionInterfaceTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, Executor::execute($this->schema, $ast)->toArray());
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast)->toArray());
     }
 
     /**
@@ -202,7 +202,7 @@ class UnionInterfaceTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
     }
 
     /**
@@ -239,7 +239,7 @@ class UnionInterfaceTest extends TestCase
 
             ],
         ];
-        self::assertEquals($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
     }
 
     /**
@@ -271,7 +271,7 @@ class UnionInterfaceTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
     }
 
     /**
@@ -307,7 +307,7 @@ class UnionInterfaceTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, Executor::execute($this->schema, $ast, $this->john)->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast, $this->john)->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     /**
@@ -362,7 +362,7 @@ class UnionInterfaceTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
+        self::assertArraySubset($expected, Executor::execute($this->schema, $ast, $this->john)->toArray());
     }
 
     /**
@@ -416,7 +416,7 @@ class UnionInterfaceTest extends TestCase
 
         $ast = Parser::parse('{ name, friends { name } }');
 
-        self::assertEquals(
+        self::assertArraySubset(
             ['data' => ['name' => 'John', 'friends' => [['name' => 'Liz']]]],
             GraphQL::executeQuery($schema2, $ast, $john2, $context)->toArray()
         );

@@ -41,7 +41,7 @@ class StandardServerTest extends ServerTestCase
             'data' => ['f1' => 'f1'],
         ];
 
-        self::assertEquals($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
+        self::assertArraySubset($expected, $result->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE));
     }
 
     private function parseRawRequest($contentType, $content, $method = 'POST')

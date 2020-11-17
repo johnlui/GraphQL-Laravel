@@ -107,7 +107,7 @@ class AbstractPromiseTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected, $result);
     }
 
     /**
@@ -277,7 +277,7 @@ class AbstractPromiseTest extends TestCase
             ],
         ];
 
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected, $result);
     }
 
     /**
@@ -570,7 +570,7 @@ class AbstractPromiseTest extends TestCase
                 ],
             ],
         ];
-        self::assertEquals($expected, $result);
+        self::assertArraySubset($expected, $result);
     }
 
     /**

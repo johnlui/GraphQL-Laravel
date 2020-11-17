@@ -285,7 +285,7 @@ final class QueryPlanTest extends TestCase
         $result = GraphQL::executeQuery($schema, $doc)->toArray();
 
         self::assertTrue($hasCalled);
-        self::assertEquals(['data' => ['article' => null]], $result);
+        self::assertArraySubset(['data' => ['article' => null]], $result);
         self::assertEquals($expectedQueryPlan, $queryPlan->queryPlan());
         self::assertEquals($expectedReferencedTypes, $queryPlan->getReferencedTypes());
         self::assertEquals($expectedReferencedFields, $queryPlan->getReferencedFields());
@@ -687,7 +687,7 @@ final class QueryPlanTest extends TestCase
         $result = GraphQL::executeQuery($schema, $doc)->toArray();
 
         self::assertTrue($hasCalled);
-        self::assertEquals(['data' => ['article' => null]], $result);
+        self::assertArraySubset(['data' => ['article' => null]], $result);
         self::assertEquals($expectedQueryPlan, $queryPlan->queryPlan());
         self::assertEquals($expectedReferencedTypes, $queryPlan->getReferencedTypes());
         self::assertEquals($expectedReferencedFields, $queryPlan->getReferencedFields());
@@ -911,7 +911,7 @@ final class QueryPlanTest extends TestCase
         $result = GraphQL::executeQuery($schema, $query)->toArray();
 
         self::assertTrue($hasCalled);
-        self::assertEquals($expectedResult, $result);
+        self::assertArraySubset($expectedResult, $result);
         self::assertEquals($expectedQueryPlan, $queryPlan->queryPlan());
         self::assertEquals($expectedReferencedTypes, $queryPlan->getReferencedTypes());
         self::assertEquals($expectedReferencedFields, $queryPlan->getReferencedFields());

@@ -174,7 +174,7 @@ class SyncTest extends TestCase
             [
                 'errors' => [
                     [
-                        'message'   => 'Syntax Error: Expected Name, found {',
+                        'message'   => 'Query 语法错误: Expected Name, found {',
                         'locations' => [['line' => 1, 'column' => 29]],
                     ],
                 ],
