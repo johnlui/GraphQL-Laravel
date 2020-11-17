@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/johnlui/GraphQL-Laravel"><img src="https://github.com/johnlui/GraphQL-Laravel/blob/master/assets/GraphQL-Laravel.png"></a>
+    <a href="https://github.com/johnlui/GraphQL-Laravel"><img src="https://github.com/johnlui/GraphQL-Laravel/blob/master/assets/GraphQL-Laravel.png?raw=true"></a>
 </p>
 
 <p align="center">
@@ -7,8 +7,6 @@
   <!-- <a href="https://github.com/Pinatra/Pinatra"><img src="https://img.shields.io/badge/Code_Coverage-100%25-brightgreen.svg" alt="code-coverage"></a> -->
   <a href="https://github.com/Pinatra/Pinatra"><img src="https://img.shields.io/badge/PHP-7.1%2B-orange.svg" alt="php-version"></a>
   <a href="https://packagist.org/packages/johnlui/GraphQL-Laravel"><img src="https://poser.pugx.org/johnlui/GraphQL-Laravel/license.svg" alt="License"></a>
-</p>
-<p align="center">
   <a href="https://travis-ci.org/johnlui/GraphQL-Laravel"><img src="https://travis-ci.org/johnlui/GraphQL-Laravel.svg?branch=master"></a>
 </p>
 
