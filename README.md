@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/johnlui/GraphQL-Laravel"><img src="https://github.com/johnlui/GraphQL-Laravel/blob/master/assets/logo.png"></a>
+    <a href="https://github.com/johnlui/GraphQL-Laravel"><img src="./assets/logo.png?raw=true"></a>
 </p>
 
 <p align="center">
