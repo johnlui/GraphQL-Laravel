@@ -36,13 +36,14 @@
   "autoload": {
     "psr-4": {
       "GraphQL\\": "src/"
-    }
+    },
+    "files": [
+      "src/helpers.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
-      "GraphQL\\Tests\\": "tests/",
-      "GraphQL\\Benchmarks\\": "benchmarks/",
-      "GraphQL\\Examples\\Blog\\": "examples/01-blog/Blog/"
+      "GraphQL\\Tests\\": "tests/"
     }
   },
   "extra": {

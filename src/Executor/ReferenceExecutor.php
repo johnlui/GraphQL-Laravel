@@ -621,6 +621,14 @@ class ReferenceExecutor implements ExecutorImplementation
             );
             $contextValue = $this->exeContext->contextValue;
 
+            $fields = [];
+            if ( isset($fieldNode->selectionSet->selections) && count($fieldNode->selectionSet->selections)) {
+                foreach ($fieldNode->selectionSet->selections as $v) {
+                    $fields[] = $v->name->value;
+                }
+            }
+            $contextValue->fields = $fields;
+
             return $resolveFn($rootValue, $args, $contextValue, $info);
         } catch (Exception $error) {
             throw $error;

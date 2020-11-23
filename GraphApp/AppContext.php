@@ -7,6 +7,7 @@ class AppContext
   public $rootUrl;
   public $viewer;
   public $request;
+  public $fields;
 
   public static function apiResponse($status = 0 , $message = '' , $data='')
   {

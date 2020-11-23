@@ -19,10 +19,11 @@
 1. 接入 Laravel Middleware
 2. 依赖 Laravel Exception 处理异常流程
 3. 完美接入 Eloquent
-4. 提供 GraphQL 路由
-5. 设置 Types 文件夹，提供强大的 Type 基类
-6. 设置 QueryFields 文件夹
-
+4. 提炼出 GraphQL 路由
+5. 提供 Types 文件夹，并提供强大的 Type 基类
+6. 提供 QueryFields 文件夹，提供类似于 Controller 归类的功能
+7. 暴露用户请求字段给 QueryField，便于节约资源、并发 RPC 等后续操作
+8. 提供 JSON API 语境下的调试函数 `cc()`
 
 <br>
 
