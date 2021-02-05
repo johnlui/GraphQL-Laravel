@@ -2,7 +2,7 @@
 
 namespace GraphQL;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Redis;
 use Request;
 use Throwable;
