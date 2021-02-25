@@ -58,6 +58,9 @@ class Handler extends ExceptionHandler
     if ($exception instanceof \App\GraphApp\Exceptions\ApiResponseException) {
       return $exception->getData();
     }
+    if ($exception instanceof \GraphQL\Error\Error) {
+      return cc($exception);
+    }
     return parent::render($request, $exception);
   }
 }
