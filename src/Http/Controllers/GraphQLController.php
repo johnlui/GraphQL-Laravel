@@ -61,7 +61,7 @@ class GraphQLController extends Controller
       if ( in_array(get_class($error), $this->exceptionsShouldThrow) ) {
         throw $error;
       }
-      if ( $debug && get_class($error) == \GraphQL\Error\Error::class ) {
+      if ( !$debug && get_class($error) == \GraphQL\Error\Error::class ) {
         throw $error;
       }
       if ($error instanceof \ErrorException) {
