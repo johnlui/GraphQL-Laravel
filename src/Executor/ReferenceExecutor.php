@@ -688,6 +688,9 @@ class ReferenceExecutor implements ExecutorImplementation
      */
     private function handleFieldError($rawError, ArrayObject $fieldNodes, array $path, Type $returnType) : void
     {
+        if ($rawError instanceof \App\GraphApp\Exceptions\ApiResponseException) {
+            throw $rawError;
+        }
         $error = Error::createLocatedError(
             $rawError,
             $fieldNodes,
