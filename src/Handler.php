@@ -9,14 +9,6 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
-  /**
-   * A list of the exception types that are not reported.
-   *
-   * @var array
-   */
-  protected $dontReport = [
-    \App\GraphApp\Exceptions\ApiResponseException::class,
-  ];
 
   /**
    * A list of the inputs that are never flashed for validation exceptions.
@@ -27,6 +19,16 @@ class Handler extends ExceptionHandler
     'password',
     'password_confirmation',
   ];
+
+  /**
+   * Add one exception to the list of the exception types that are not reported.
+   *
+   * @var array
+   */
+  public function __construct()
+  {
+    $this->dontReport[] = \App\GraphApp\Exceptions\ApiResponseException::class;
+  }
 
   /**
    * Report or log an exception.
