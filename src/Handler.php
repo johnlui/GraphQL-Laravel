@@ -25,7 +25,7 @@ class Handler extends ExceptionHandler
    *
    * @var array
    */
-  public function __construct()
+  public function register()
   {
     $this->dontReport[] = \App\GraphApp\Exceptions\ApiResponseException::class;
   }
